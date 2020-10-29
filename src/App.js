@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-function App() {
+import { getMovieList } from './store/movie'
+
+const App = () => {
+  const movieList = useSelector(state => state.movie.list)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getMovieList())
+  }, [dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {console.log(movieList)}
+    </>
+  )
 }
 
-export default App;
+export default App
