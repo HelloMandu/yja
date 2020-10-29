@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { getMovieList } from './store/movie'
+import MainPage from "./pages/Mainpage/MainPage";
 
-import Loading from './components/Loading'
+import Loading from "./components/Loading";
+
+import { getMovieList } from "./api/movie";
 
 const App = () => {
-  const isLoading = useSelector(state => state.loading.isLoading)
-  const movieList = useSelector(state => state.movie.list)
-  const dispatch = useDispatch()
+    const isLoading = useSelector((state) => state.loading.isLoading);
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getMovieList())
-  }, [dispatch])
+    useEffect(() => {
+        dispatch(getMovieList());
+    }, [dispatch]);
 
-  return (
-    <>
-      <Loading />
-      {!isLoading && console.log(movieList)}
-    </>
-  )
-}
+    return (
+        <>
+            <Loading />
+            {!isLoading && <MainPage></MainPage>}
+        </>
+    );
+};
 
-export default App
+export default App;
