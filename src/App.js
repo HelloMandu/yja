@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import MainPage from './pages/Mainpage/MainPage';
-
-import './static/index.scss'
+import { getMovieList } from './store/movie'
 
 const App = () => {
+  const movieList = useSelector(state => state.movie.list)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getMovieList())
+  }, [dispatch])
+
   return (
-    <div>
-      <MainPage></MainPage>
-    </div>
-  );
+    <>
+      {console.log(movieList)}
+    </>
+  )
 }
 
-export default App;
+export default App
