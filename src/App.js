@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-import { getMovieList } from './store/movie'
+import MainPage from "./pages/Mainpage/MainPage";
+
+import { getMovieList } from "./store/movie";
 
 const App = () => {
-  const movieList = useSelector(state => state.movie.list)
-  const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getMovieList());
+    }, [dispatch]);
+    return (
+        <>
+            <MainPage></MainPage>
+        </>
+    );
+};
 
-  useEffect(() => {
-    dispatch(getMovieList())
-  }, [dispatch])
-
-  return (
-    <>
-      {console.log(movieList)}
-    </>
-  )
-}
-
-export default App
+export default App;
