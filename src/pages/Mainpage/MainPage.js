@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import {useSelector} from 'react-redux';
 
+import CategoryContainer from '../../containers/CategoryContainer/CategoryContainer';
+
 import Header from '../../components/header/Header';
 import SwiperView from '../../components/Swiper/SwiperView'
 import Category from '../../components/Category/Category'
@@ -17,7 +19,7 @@ const MainPage = () => {
     <div className="mainpage">
       <Header></Header>
       <SwiperView movieList={movieList}></SwiperView>
-      <Category></Category>
+      <CategoryContainer movieList={movieList}></CategoryContainer>
     </div>
   );
 }

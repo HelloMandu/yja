@@ -5,16 +5,14 @@ import MainPage from "./pages/Mainpage/MainPage";
 
 import Loading from "./components/Loading";
 
-import { getMovieList } from "./api/movie";
+import { getMovieList } from "./store/movie";
 
 const App = () => {
     const isLoading = useSelector((state) => state.loading.isLoading);
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(getMovieList());
     }, [dispatch]);
-
     return (
         <>
             <Loading />
