@@ -7,7 +7,7 @@ export const startLoading = createAction(START_LOADING);
 export const finishLoading = createAction(FINISH_LOADING);
 
 const initialState = {
-    isLoading: false,
+    isLoading: true,
 };
 
 const loading = handleActions(
