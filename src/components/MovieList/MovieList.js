@@ -1,17 +1,23 @@
 import React from "react";
 import { useRef } from "react";
 
-import './MovieList.scss';
+import "./MovieList.scss";
 
-const MovieItem = ({ title, summary, small_cover_image }) => {
+const MovieItem = React.memo(function ({ title, summary, small_cover_image }) {
     return (
         <>
-            <img src={small_cover_image} alt="movie-item" />
-            <div className="movie-title">{title}</div>
-            <div className="movie-summary">{summary}</div>
+            <img
+                className="movie-img"
+                src={small_cover_image}
+                alt="movie-item"
+            />
+            <div className="movie-description">
+                <div className="movie-title">{title}</div>
+                <div className="movie-summary">{summary}</div>
+            </div>
         </>
     );
-};
+});
 
 const MovieList = ({ movieList }) => {
     const id = useRef(0);
@@ -20,7 +26,7 @@ const MovieList = ({ movieList }) => {
             {movieList.map(({ title, summary, small_cover_image }) => {
                 id.current += 1;
                 return (
-                    <li key={id} className="movie-item">
+                    <li key={id.current} className="movie-item">
                         <MovieItem
                             title={title}
                             summary={summary}
@@ -33,4 +39,4 @@ const MovieList = ({ movieList }) => {
     );
 };
 
-export default MovieList;
+export default React.memo(MovieList);

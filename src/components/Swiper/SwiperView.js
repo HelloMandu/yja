@@ -6,7 +6,7 @@ import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "./SwiperView.scss";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+// import "swiper/components/pagination/pagination.scss";
 
 const SwiperView = ({movieList}) => {
     SwiperCore.use([Autoplay, Navigation, Pagination]);
@@ -16,13 +16,8 @@ const SwiperView = ({movieList}) => {
             spaceBetween={50}
             slidesPerView={1}
             centeredSlides={true}
-            pagination
-            navigation
+            pagination={{ clickable: true }}
             loop={true}
-            autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-            }}
         >
             {movieList.map(({ id, background_image }) => (
                 <SwiperSlide key={id} className="swiper-slide">

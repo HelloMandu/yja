@@ -6,15 +6,11 @@ import CategoryContainer from '../../containers/CategoryContainer/CategoryContai
 
 import Header from '../../components/header/Header';
 import SwiperView from '../../components/Swiper/SwiperView'
-import Category from '../../components/Category/Category'
 
 import './MainPage.scss'
 
 const MainPage = () => {
   const movieList = useSelector(state => state.movie.list);
-  useEffect(()=>{
-    console.log(movieList);
-  })
   return (
     <div className="mainpage">
       <Header></Header>

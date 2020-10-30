@@ -1,58 +1,19 @@
-import React, { useRef } from "react";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import React from "react";
 
 import "./Category.scss";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
 
-const genres = [
-    "Action",
-    "Adventure",
-    "Animation",
-    "Biography",
-    "Comedy",
-    "Crime",
-    "Documentary",
-    "Drama",
-    "Family",
-    "Fantasy",
-    "Film Noir",
-    "History",
-    "Horror",
-    "Music",
-    "Musical",
-    "Mystery",
-    "Romance",
-    "Sci-Fi",
-    "Short Film",
-    "Sport",
-    "Superhero",
-    "Thriller",
-    "War",
-    "Western",
-];
-
-const Category = () => {
-    const id = useRef(0);
+const Category = ({ genres, category, setCategory }) => {
     return (
-        <Swiper
-            className="category"
-            slidesPerView={5}
-            onSwiper={(swiper) => console.log(swiper)}
-        >
-            {genres.map((genre) => {
-                id.current += 1;
+        <div className="category-list">
+            {genres.map(({ id, genre }) => {
                 return (
-                    <SwiperSlide key={id.current} className="category-list">
+                    <div key={id} className="category-item">
                         {genre}
-                    </SwiperSlide>
+                    </div>
                 );
             })}
-        </Swiper>
+        </div>
     );
 };
 
-export default Category;
+export default React.memo(Category);
