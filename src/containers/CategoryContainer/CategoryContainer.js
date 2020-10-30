@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 
-import Category from "../../components/Category/Category";
 import MovieList from "../../components/MovieList/MovieList";
 
 import "./CategoryContainer.scss";
@@ -117,14 +116,12 @@ const CategoryContainer = ({ movieList }) => {
     SwiperCore.use([Autoplay, Navigation, Pagination]);
     useEffect(() => {
         const paginationBullet = document.getElementById("movie-swiper");
-        // console.log(paginationBullet.firstChild.children[0]);
-        // paginationBullet.firstChild.forEach(bullet => {
-        //     bullet.innerHTML = 
-        // });
+        for (let i = 0; i < genres.length; i++) {
+            paginationBullet.firstChild.children[i].innerHTML = genres[i].genre;
+        }
     }, []);
     return (
         <>
-            <Category genres={genres}></Category>
             <Swiper
                 id="movie-swiper"
                 className="movie-swiper"

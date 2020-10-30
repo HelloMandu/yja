@@ -8,31 +8,4 @@
             width: 100%;
         }
     }
-    .swiper-pagination{
-        display: flex;
-        position: absolute;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-        &::-webkit-scrollbar {
-                display: none;
-        }
-        width: 100%;
-        height: 50px;
-        cursor: pointer;
-        z-index: 1500;
-        .swiper-pagination-bullet{
-            display: inline-block;
-            min-width: 120px;
-            height: 10px;
-            margin: 5px;
-            background-color: gray;
-        }
-        .swiper-pagination-bullet-active{
-            display: inline-block;
-            min-width: 120px;
-            height: 10px;
-            margin: 5px;
-            background-color: black;
-        }
-    }
 }
