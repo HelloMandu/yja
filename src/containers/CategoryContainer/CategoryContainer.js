@@ -117,7 +117,7 @@ const CategoryContainer = ({ movieList }) => {
     SwiperCore.use([Autoplay, Navigation, Pagination]);
     useEffect(() => {
         const paginationBullet = document.getElementById("movie-swiper");
-        console.log(paginationBullet.firstChild.children[0]);
+        // console.log(paginationBullet.firstChild.children[0]);
         // paginationBullet.firstChild.forEach(bullet => {
         //     bullet.innerHTML = 
         // });
