@@ -119,7 +119,8 @@ const CategoryContainer = ({ movieList }) => {
         for (let i = 0; i < genres.length; i++) {
             paginationBullet.firstChild.children[i].innerHTML = genres[i].genre;
         }
-    }, []);
+    }, [movieList]);
+
     return (
         <>
             <Swiper
@@ -131,10 +132,15 @@ const CategoryContainer = ({ movieList }) => {
                 loop={true}
             >
                 {genres.map(({ id, genre }) => (
-                    <SwiperSlide key={id} className="movie-slide">
+                    <SwiperSlide key={id} className="movie-slide" >
                         <MovieList
-                            genre={genre}
-                            movieList={movieList}
+                            movieList={id === 1
+                                ? movieList
+                                : movieList.filter(item => {
+                                for(let i = 0; i < item.genres.length; i++){
+                                    if(item.genres[i] === genre) return true
+                                }})
+                            }
                         ></MovieList>
                     </SwiperSlide>
                 ))}

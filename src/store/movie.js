@@ -11,11 +11,10 @@ const GET_MOVIE_FAILURE = 'movie/GET_MOVIE_FAILURE'
 
 export const getMovieList = createAction(GET_MOVIE_LIST)
 
-export function* getMovieSaga() {
+export function* getMovieSaga(action) {
     yield put(startLoading())
-
     try {
-        const MOVIE_LIST = yield call(getMovie)
+        const MOVIE_LIST = yield call(getMovie, action.payload)
         yield put({
             type: GET_MOVIE_SUCCESS,
             payload: MOVIE_LIST
@@ -27,7 +26,6 @@ export function* getMovieSaga() {
             error: e
         })
     }
-
     yield put(finishLoading())
 }
 
