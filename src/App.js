@@ -15,8 +15,6 @@ const App = () => {
         dispatch(getMovieList('Action'));
     }, [dispatch]);
 
-    const movieList = useSelector((state) => state.movie.list)
-
     return (
         <>
             <Loading />
