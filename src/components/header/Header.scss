@@ -1,19 +1,8 @@
 .header{
-    position: relative;
-    width: 100%;
+    text-align: center;
     height: 64px;
-    border: 1px solid black;
-    .header-title{
-        top: 50%;
-        transform: translateY(-50%);
-        text-align: center;
-    }
-    .search-icon{
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        width: auto;
-        cursor: pointer;
-    }
+    line-height: 64px;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    margin: 0;
 }
