@@ -1,17 +1,15 @@
-import { combineReducers } from 'redux'
-import { all } from 'redux-saga/effects'
-import movie, { movieSaga } from './movie'
-import detail, { detailSaga } from './detail'
-import loading from './loading'
+import { combineReducers } from "redux";
+import { all } from "redux-saga/effects";
+import movie, { movieSaga } from "./movie";
+import loading from "./loading";
 
 const rootReducer = combineReducers({
     movie,
-    detail,
-    loading
-})
+    loading,
+});
 
 export function* rootSaga() {
-    yield all([movieSaga(), detailSaga()])
+    yield all([movieSaga()]);
 }
 
-export default rootReducer
+export default rootReducer;

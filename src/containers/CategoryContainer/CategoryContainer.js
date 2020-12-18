@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination, EffectCoverflow } from "swiper";
+import SwiperCore, {
+    Autoplay,
+    Navigation,
+    Pagination,
+    EffectCoverflow,
+} from "swiper";
 
 import MovieList from "../../components/MovieList/MovieList";
 
@@ -9,7 +14,6 @@ import "./CategoryContainer.scss";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/effect-coverflow/effect-coverflow.scss";
-
 
 const genres = [
     {
@@ -122,7 +126,6 @@ const CategoryContainer = ({ movieList }) => {
             paginationBullet.firstChild.children[i].innerHTML = genres[i].genre;
         }
     }, [movieList]);
-
     return (
         <>
             <Swiper
@@ -132,26 +135,19 @@ const CategoryContainer = ({ movieList }) => {
                 centeredSlides={true}
                 pagination={{ clickable: true }}
                 loop={true}
-                effect={'coverflow'}
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
             >
                 {genres.map(({ id, genre }) => (
-                    <SwiperSlide key={id} className="movie-slide" >
+                    <SwiperSlide key={id} className="movie-slide">
                         <MovieList
-                            movieList={id === 1
-                                ? movieList
-                                : movieList.filter(item => {
-                                for(let i = 0; i < item.genres.length; i++){
-                                    if(item.genres[i] === genre) {
-                                        return true
-                                    }
-                                }})
+                            movieList={
+                                id === 1
+                                    ? movieList
+                                    : movieList.filter(
+                                          ({ genres }) =>
+                                              genres.findIndex(
+                                                  (item) => item === genre
+                                              ) !== -1
+                                      )
                             }
                         ></MovieList>
                     </SwiperSlide>

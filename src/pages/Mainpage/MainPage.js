@@ -1,23 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import {useSelector} from 'react-redux';
+import { useSelector } from "react-redux";
 
-import CategoryContainer from '../../containers/CategoryContainer/CategoryContainer';
+import CategoryContainer from "../../containers/CategoryContainer/CategoryContainer";
 
-import Header from '../../components/header/Header';
-import SwiperView from '../../components/Swiper/SwiperView'
-
-import './MainPage.scss'
+import Header from "../../components/header/Header";
+import SwiperView from "../../components/Swiper/SwiperView";
 
 const MainPage = () => {
-  const movieList = useSelector(state => state.movie.list);
-  return (
-    <div className="mainpage">
-      <Header></Header>
-      <SwiperView movieList={movieList}></SwiperView>
-      <CategoryContainer movieList={movieList}></CategoryContainer>
-    </div>
-  );
-}
+    const movieList = useSelector((state) => state.movie.list);
+    return (
+        <div className="mainpage">
+            <Header></Header>
+            <SwiperView movieList={movieList}></SwiperView>
+            <CategoryContainer movieList={movieList}></CategoryContainer>
+        </div>
+    );
+};
 
 export default MainPage;
