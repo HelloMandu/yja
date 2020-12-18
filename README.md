@@ -1,4 +1,4 @@
-<h1 align="center">Prevention Of IllegalParking</h1>
+<h1 align="center">Movie api와 Swiper를 이용한 영화 리스트</h1>
 
 ## Features
 - React Project
@@ -21,7 +21,7 @@
 ## Explain
  - 영화 포스터와 장르별 분류 모두 스와이퍼를 사용
  <p align="center">
-   <img src="https://user-images.githubusercontent.com/45222982/102355671-8a013280-3fef-11eb-9e55-4cd3b65e8a29.png" width="800" height="300"/>
+   <img src="https://user-images.githubusercontent.com/45222982/102621683-43dcd800-4183-11eb-8498-1b890748e938.png" width="800" height="300"/>
 </p>
 
 ### Source
