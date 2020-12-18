@@ -54,3 +54,15 @@
                 ))}
             </Swiper>
 ```
+- Swiper 기능을 쓰기위해 stylesheet와 use에 등록해야함
+```
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay, Navigation, EffectCoverflow } from "swiper";
+
+import "./SwiperView.scss";
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/effect-coverflow/effect-coverflow.scss";
+
+SwiperCore.use([Autoplay, Navigation, EffectCoverflow]);
+```
