@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import SwiperCore, {
+    Autoplay,
+    Navigation,
+    Pagination,
+    EffectCoverflow,
+} from "swiper";
 
 import MovieList from "../../components/MovieList/MovieList";
 
 import "./CategoryContainer.scss";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
+import "swiper/components/effect-coverflow/effect-coverflow.scss";
 
 const genres = [
     {
@@ -113,14 +119,13 @@ const genres = [
 ];
 
 const CategoryContainer = ({ movieList }) => {
-    SwiperCore.use([Autoplay, Navigation, Pagination]);
+    SwiperCore.use([Autoplay, Navigation, Pagination, EffectCoverflow]);
     useEffect(() => {
         const paginationBullet = document.getElementById("movie-swiper");
         for (let i = 0; i < genres.length; i++) {
             paginationBullet.firstChild.children[i].innerHTML = genres[i].genre;
         }
     }, [movieList]);
-
     return (
         <>
             <Swiper
@@ -134,12 +139,15 @@ const CategoryContainer = ({ movieList }) => {
                 {genres.map(({ id, genre }) => (
                     <SwiperSlide key={id} className="movie-slide" >
                         <MovieList
-                            movieList={id === 1
-                                ? movieList
-                                : movieList.filter(item => {
-                                for(let i = 0; i < item.genres.length; i++){
-                                    if(item.genres[i] === genre) return true
-                                }})
+                            movieList={
+                                id === 1
+                                    ? movieList
+                                    : movieList.filter(
+                                          ({ genres }) =>
+                                              genres.findIndex(
+                                                  (item) => item === genre
+                                              ) !== -1
+                                      )
                             }
                         ></MovieList>
                     </SwiperSlide>
