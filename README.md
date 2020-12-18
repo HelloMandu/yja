@@ -21,7 +21,7 @@
 ## Explain
  - 영화 포스터와 장르별 분류 모두 스와이퍼를 사용
  <p align="center">
-   <img src="https://user-images.githubusercontent.com/45222982/102621683-43dcd800-4183-11eb-8498-1b890748e938.png" width="800" height="300"/>
+   <img src="https://user-images.githubusercontent.com/45222982/102621683-43dcd800-4183-11eb-8498-1b890748e938.png" width="800" height="400"/>
 </p>
 
 ### Source
